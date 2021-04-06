@@ -1,29 +1,11 @@
-# README #
+# AWS Serverless Swagger Lambda Sample Application
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This shows an example of accessing Swagger UI on an AWS Serverless application composed of an API Gateway and .NET Core Lambda.
 
-### What is this repository for? ###
+# MAC OS Setup
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+1. Install Visual Studio For MAC
+2. Install Visual Studio Lambda Tools extensions - dotnet tool install -g Amazon.Lambda.Tools
+3. Install Visual Studio Lambda Templates - dotnet new -i Amazon.Lambda.Templates
+4. Enter: dotnet new -all to search for all installed templates. You should see the Lambda and serverless templates appear here.
+5. To create a serverless template: dotnet new serverless.AspNetCoreWebAPI -n SwaggerAPILambda -p default -r eu-west-1
