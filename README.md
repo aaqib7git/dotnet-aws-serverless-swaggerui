@@ -11,6 +11,9 @@ This shows an example of accessing Swagger UI on an AWS Serverless application c
 5. To create a serverless template: dotnet new serverless.AspNetCoreWebAPI -n SwaggerAPILambda -p default -r eu-west-1
 
 
+# Swagger UI Endpoint
+https://mlbej0yd24.execute-api.eu-west-1.amazonaws.com/beta/swaggerui/swagger/index.html
+
 # Reference
 
 Swashbuckle: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-5.0&tabs=visual-studio
