@@ -48,5 +48,5 @@ functions:
           path: "swagger/{proxy+}"
           method: "get"
       - http:
-          path: "beta/swagger/{proxy+}"
+          path: "swaggerui/swagger/{proxy+}"
           method: "get"

@@ -56,13 +56,13 @@ namespace SwaggerAPILambda
             //Swagger
             app.UseSwagger(c =>
             {
-                c.RouteTemplate = "beta/swagger/{documentName}/swagger.json";
+                c.RouteTemplate = "swaggerui/swagger/{documentName}/swagger.json";
             });
 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("v1/swagger.json", "Customers API V1");
-                c.RoutePrefix = "beta/swagger";
+                c.RoutePrefix = "swaggerui/swagger";
             });
 
             app.UseAuthorization();
