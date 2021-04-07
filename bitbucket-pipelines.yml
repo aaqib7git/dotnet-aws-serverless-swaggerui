@@ -6,19 +6,24 @@ image: atlassian/default-image:2
 
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: 'Build and Package'
-          script:
-            - echo "Your build and test goes here..."
+    - step:
+        name: 'Build and Package'
+        image: aoblueshell/dotnet3.1-aws-cli
+        script:
+          - cd SwaggerAPILambda/src/SwaggerAPILambda
+          - dotnet build
+          - dotnet publish -c Release
+          - cp serverless.yml bin/Release/netcoreapp3.1/publish
+        artifacts:
+          - SwaggerAPILambda/src/SwaggerAPILambda/bin/**
     - step:
         name: 'Deployment to Beta'
+        image: aoblueshell/node-serverless-awscli:v4
         deployment: test
         script:
-          - echo "Your deployment to staging script goes here..."
-    - step:
-        name: 'Deployment to Production'
-        deployment: production
-        trigger: 'manual'
-        script:
-          - echo "Your deployment to production script goes here..."
+          - cd SwaggerAPILambda/src/SwaggerAPILambda
+          - cd bin/Release/netcoreapp3.1/publish
+          - npm i -g serverless@2.31.0
+          - serverless --version
+          - serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+          - serverless deploy -v

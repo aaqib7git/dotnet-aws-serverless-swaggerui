@@ -7,13 +7,14 @@ custom:
 
 provider:
   name: aws
+  account: '375871334816'
   endpointType: REGIONAL
   runtime: dotnetcore3.1
   memorySize: 512
   timeout: 30
   region: eu-west-1
   deploymentBucket:
-    name: serverless-deploys
+    name: aaqib-serverless-deploys
     serverSideEncryption: AES256
   stage: ${self:custom.stage}
   iamRoleStatements:
