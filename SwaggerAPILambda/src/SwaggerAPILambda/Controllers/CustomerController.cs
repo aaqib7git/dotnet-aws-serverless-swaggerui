@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SwaggerAPILambda.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     public class CustomerController : Controller
     {

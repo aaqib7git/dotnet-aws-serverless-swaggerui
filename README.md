@@ -9,3 +9,8 @@ This shows an example of accessing Swagger UI on an AWS Serverless application c
 3. Install Visual Studio Lambda Templates - dotnet new -i Amazon.Lambda.Templates
 4. Enter: dotnet new -all to search for all installed templates. You should see the Lambda and serverless templates appear here.
 5. To create a serverless template: dotnet new serverless.AspNetCoreWebAPI -n SwaggerAPILambda -p default -r eu-west-1
+
+
+# Reference
+
+Swashbuckle: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-5.0&tabs=visual-studio
