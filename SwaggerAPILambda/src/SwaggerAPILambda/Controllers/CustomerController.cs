@@ -43,10 +43,20 @@ namespace SwaggerAPILambda.Controllers
         }
     }
 
+    /// <summary>
+    /// Customer Details DTO.
+    /// </summary>
     public class Customer
     {
+        /// <summary>
+        /// Customer Name
+        /// </summary>
         [Required]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Customer Age
+        /// </summary>
         [Required]
         public int Age { get; set; }
     }
