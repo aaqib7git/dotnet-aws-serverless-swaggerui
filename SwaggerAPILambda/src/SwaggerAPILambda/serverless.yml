@@ -1,0 +1,48 @@
+service:
+  name: swaggerserverlesslambda
+
+custom:
+  stage: 'beta'
+  environmentTag: ${opt:environmentTag, 'qa'}
+
+provider:
+  name: aws
+  endpointType: REGIONAL
+  runtime: dotnetcore3.1
+  memorySize: 512
+  timeout: 30
+  region: eu-west-1
+  deploymentBucket:
+    name: serverless-deploys
+    serverSideEncryption: AES256
+  stage: ${self:custom.stage}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "logs:CreateLogGroup"
+        - "logs:CreateLogStream"
+        - "logs:PutLogEvents"
+      Resource: "*"
+
+package:
+  include:
+    - ./**
+
+functions:
+  orders:
+    name: customers-lambda-${self:custom.stage}
+    handler: SwaggerAPILambda::SwaggerAPILambda.LambdaEntryPoint::FunctionHandlerAsync
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${self:custom.stage}
+    events:
+      - http:
+          path: "api/customer"
+          method: "get"
+          cors: true
+      - http:
+          path: "api/customer"
+          method: "post"
+          cors: true
+      - http:
+          path: "swagger/{proxy+}"
+          method: "get"
