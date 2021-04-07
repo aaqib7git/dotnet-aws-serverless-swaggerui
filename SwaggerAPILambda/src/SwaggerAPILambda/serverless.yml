@@ -45,8 +45,5 @@ functions:
           method: "post"
           cors: true
       - http:
-          path: "swagger/{proxy+}"
-          method: "get"
-      - http:
           path: "swaggerui/swagger/{proxy+}"
           method: "get"
