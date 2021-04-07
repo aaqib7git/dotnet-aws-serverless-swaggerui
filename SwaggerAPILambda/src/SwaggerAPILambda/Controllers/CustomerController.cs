@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,12 @@ namespace SwaggerAPILambda.Controllers
     [Route("api/[controller]")]
     public class CustomerController : Controller
     {
-
+        /// <summary>
+        /// Get All Customer Details.
+        /// </summary>
+        /// <returns> Return Customer Details</returns>
+        /// <response code="200">Return Customer Details successfully.</response>
+        /// <response code="500">There was a problem getting customer details due to an internal error with an API.</response>
         [HttpGet]
         public ActionResult<Customer> Get()
         {
@@ -23,8 +29,15 @@ namespace SwaggerAPILambda.Controllers
             });
         }
 
+        /// <summary>
+        /// Create Customer given Name and Age.
+        /// </summary>
+        /// <param name="customer">Customer details object - Name and Age is required.</param>
+        /// <returns></returns>
+        /// <response code="200">Create Customer sucessfully.</response>
+        /// <response code="500">There was a problem creating customer details due to an internal error with an API.</response>
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult Create([FromBody] Customer customer)
         {
             return new OkObjectResult("Customer Created");
         }
@@ -32,7 +45,9 @@ namespace SwaggerAPILambda.Controllers
 
     public class Customer
     {
+        [Required]
         public string Name { get; set; }
+        [Required]
         public int Age { get; set; }
     }
 }
