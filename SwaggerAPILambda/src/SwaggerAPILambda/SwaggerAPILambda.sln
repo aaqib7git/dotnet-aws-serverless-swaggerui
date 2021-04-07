@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.809.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerAPILambda", "SwaggerAPILambda.csproj", "{126F69C7-6530-4F58-8B34-03E5B7B6FB3F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52120789-FD85-45E1-A9E3-AE5BBC2D1F2B}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\bitbucket-pipelines.yml = ..\..\..\bitbucket-pipelines.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
