@@ -7,7 +7,7 @@ custom:
 
 provider:
   name: aws
-  account: '375871334816'
+  account: 'AWS_ACCOUNT_ID'
   endpointType: REGIONAL
   runtime: dotnetcore3.1
   memorySize: 512
@@ -45,5 +45,5 @@ functions:
           method: "post"
           cors: true
       - http:
-          path: "swaggerui/swagger/{proxy+}"
+          path: "swagger/{proxy+}"
           method: "get"
